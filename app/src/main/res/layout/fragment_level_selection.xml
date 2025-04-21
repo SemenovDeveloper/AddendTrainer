@@ -18,6 +18,7 @@
         />
 
     <Button
+        android:id="@+id/btn_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_level_test"
@@ -26,6 +27,7 @@
         />
 
     <Button
+        android:id="@+id/btn_easy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_level_easy"
@@ -34,6 +36,7 @@
         />
 
     <Button
+        android:id="@+id/btm_normal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_level_normal"
@@ -42,6 +45,7 @@
         />
 
     <Button
+        android:id="@+id/btn_hard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

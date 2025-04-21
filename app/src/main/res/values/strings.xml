@@ -8,4 +8,6 @@
     <string name="button_level_normal">normal</string>
     <string name="button_level_hard">hard</string>
     <string name="level_title">Select level:</string>
+    <string name="correct_answers">Correct answers count</string>
+    <string name="minimum">Minimum</string>
 </resources>
