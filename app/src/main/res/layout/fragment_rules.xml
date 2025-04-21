@@ -29,6 +29,7 @@
             android:layout_marginTop="16dp"
             android:textSize="24dp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:text="@string/rules_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +42,7 @@
             android:layout_marginTop="16dp"
             android:paddingHorizontal="16dp"
             android:text="@string/rules"
+            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +59,8 @@
             android:text="@string/button_submit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="@color/blue"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

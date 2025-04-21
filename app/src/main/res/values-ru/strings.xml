@@ -4,4 +4,9 @@
     <string name="button_submit">Понятно</string>
     <string name="rules">Правила игры: перед вами будет три фигуры, две снизу и одна сверху, в двух из них будут         числа. Необходимо, чтобы сумма чисел из двух нижних фигур была равна числу в верхней фигуре,         для этого нужно вставить недостающее число.\\n\\nПример: в верхнем круге число 7, в одном         из нижних знак вопроса, а в другом число 4. Значит на месте вопросительного знака должно         быть число 3, потому что 3 + 4 = 7</string>
     <string name="rules_title">Состав числа</string>
+    <string name="button_level_test">тестовый</string>
+    <string name="button_level_easy">легкий</string>
+    <string name="button_level_normal">нормальный</string>
+    <string name="button_level_hard">сложный</string>
+    <string name="level_title">Выберите уровень:</string>
 </resources>
