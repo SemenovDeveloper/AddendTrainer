@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AddendTrainer</string>
+    <string name="button_submit">It\'s clear</string>
+    <string name="rules">Game rules: there will be three figures in front of you, two below and one above, in two of them there will be numbers. It is necessary that the sum of the numbers from the two lower figures be equal to the number in the upper figure, for this you need to insert the missing number.  Example: in the top circle there is the number 7, in one of the lower ones there is a question mark, and in the other there is the number 4. This means that in place of the question mark there should be the number 3, because 3 + 4 = 7</string>
+    <string name="rules_title">Addend trainer</string>
 </resources>
