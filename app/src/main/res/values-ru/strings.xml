@@ -11,4 +11,9 @@
     <string name="level_title">Выберите уровень:</string>
     <string name="correct_answers">Правильных ответов</string>
     <string name="minimum">Минимум</string>
+    <string name="button_retry">попробовать снова</string>
+    <string name="min_quantity">Необходимое количество правильных ответов:</string>
+    <string name="your_score">Ваш счет:</string>
+    <string name="min_percentage">Необходимый процент правильных ответов:</string>
+    <string name="percentage">Процент правильных ответов:</string>
 </resources>
