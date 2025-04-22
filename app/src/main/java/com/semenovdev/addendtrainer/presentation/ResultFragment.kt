@@ -49,7 +49,9 @@ class ResultFragment() : Fragment() {
     }
 
     private fun parseBundle() {
-        result = requireArguments().getSerializable(KEY_RESULT) as GameResult
+        requireArguments().getParcelable<GameResult>(KEY_RESULT)?.let{
+            result = it
+        }
     }
 
     private fun retryGame() {
@@ -62,7 +64,7 @@ class ResultFragment() : Fragment() {
         fun newInstance (gameResult: GameResult): ResultFragment {
             return ResultFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(KEY_RESULT, gameResult)
+                    putParcelable(KEY_RESULT, gameResult)
                 }
             }
         }
