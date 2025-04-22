@@ -36,7 +36,7 @@
         />
 
     <Button
-        android:id="@+id/btm_normal"
+        android:id="@+id/btn_normal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_level_normal"

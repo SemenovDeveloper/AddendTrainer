@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.semenovdev.addendtrainer.R
 import com.semenovdev.addendtrainer.databinding.FragmentRulesBinding
 
 class RulesFragment : Fragment() {
@@ -20,8 +21,22 @@ class RulesFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttonRulesSubmit.setOnClickListener {
+            launchLevelSelectionFragment()
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun launchLevelSelectionFragment () {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.main, LevelSelectionFragment.newInstance())
+            .addToBackStack(LevelSelectionFragment.NAME)
+            .commit()
     }
 }
