@@ -1,5 +1,6 @@
 package com.semenovdev.addendtrainer.data
 
+import android.util.Log
 import com.semenovdev.addendtrainer.domain.entity.GameSettings
 import com.semenovdev.addendtrainer.domain.entity.Level
 import com.semenovdev.addendtrainer.domain.entity.Question
@@ -16,15 +17,18 @@ object GameRepositoryImpl: GameRepository {
         countOfOptions: Int
     ): Question {
         val sum = Random.nextInt(MIN_SUM, maxSumValue + 1)
-        val visibleAddend = Random.nextInt(MIN_ADDEND, maxSumValue)
+        val visibleAddend = Random.nextInt(MIN_ADDEND, sum)
+        val addend = sum - visibleAddend
         val options = HashSet<Int>()
-        options.add(visibleAddend)
-        val minAddendLimit = max(visibleAddend - countOfOptions, MIN_ADDEND)
-        val maxAddendLimit = min(visibleAddend + countOfOptions, maxSumValue-MIN_ADDEND)
+        options.add(addend)
+        val minAddendLimit = max(addend - countOfOptions, MIN_ADDEND)
+        val maxAddendLimit = min(addend + countOfOptions, maxSumValue-MIN_ADDEND)
 
         while (options.size < countOfOptions) {
             options.add(Random.nextInt(minAddendLimit, maxAddendLimit))
         }
+
+        Log.d(sum.toString(), visibleAddend.toString())
 
         return Question(sum, visibleAddend, options.toList())
     }

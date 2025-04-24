@@ -15,4 +15,6 @@
     <string name="your_score">Your score:</string>
     <string name="min_percentage">Required percentage of correct answers:</string>
     <string name="percentage">Percentage of correct answers:</string>
+    <string name="progress_answers">Correct answers %s (minimum %s)</string>
+    <string name="question" translatable="false">\?</string>
 </resources>

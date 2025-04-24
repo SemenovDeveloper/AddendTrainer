@@ -16,4 +16,5 @@
     <string name="your_score">Ваш счет:</string>
     <string name="min_percentage">Необходимый процент правильных ответов:</string>
     <string name="percentage">Процент правильных ответов:</string>
+    <string name="progress_answers">Правильных ответов %s (минимум %s)</string>
 </resources>
