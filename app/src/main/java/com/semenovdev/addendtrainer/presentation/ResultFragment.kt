@@ -53,7 +53,7 @@ class ResultFragment() : Fragment() {
             )
 
             tvScore.text = String.format(
-                getString(R.string.min_quantity).toString(),
+                getString(R.string.your_score).toString(),
                 result.correctAnswersCount.toString(),
             )
 
