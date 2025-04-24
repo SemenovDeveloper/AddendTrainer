@@ -11,10 +11,10 @@
     <string name="correct_answers">Correct answers count</string>
     <string name="minimum">Minimum</string>
     <string name="button_retry">Try again</string>
-    <string name="min_quantity">Required number of correct answers:</string>
-    <string name="your_score">Your score:</string>
-    <string name="min_percentage">Required percentage of correct answers:</string>
-    <string name="percentage">Percentage of correct answers:</string>
+    <string name="min_quantity">Required number of correct answers: %s</string>
+    <string name="your_score">Your score: %s</string>
+    <string name="min_percentage">Required percentage of correct answers: %s</string>
+    <string name="percentage">Percentage of correct answers: %s</string>
     <string name="progress_answers">Correct answers %s (minimum %s)</string>
     <string name="question" translatable="false">\?</string>
 </resources>

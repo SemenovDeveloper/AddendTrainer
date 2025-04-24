@@ -1,6 +1,5 @@
 package com.semenovdev.addendtrainer.data
 
-import android.util.Log
 import com.semenovdev.addendtrainer.domain.entity.GameSettings
 import com.semenovdev.addendtrainer.domain.entity.Level
 import com.semenovdev.addendtrainer.domain.entity.Question
@@ -28,16 +27,14 @@ object GameRepositoryImpl: GameRepository {
             options.add(Random.nextInt(minAddendLimit, maxAddendLimit))
         }
 
-        Log.d(sum.toString(), visibleAddend.toString())
-
         return Question(sum, visibleAddend, options.toList())
     }
 
     override fun getGameSettings(level: Level): GameSettings {
         return when(level) {
             Level.TEST -> GameSettings(
-                maxSumValue = 100,
-                minCountRightAnswers = 20,
+                maxSumValue = 20,
+                minCountRightAnswers = 3,
                 minPercentRightAnswers = 50,
                 gameTimeInSeconds = 15,
             )

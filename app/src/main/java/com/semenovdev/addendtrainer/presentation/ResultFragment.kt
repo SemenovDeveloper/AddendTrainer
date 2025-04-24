@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.semenovdev.addendtrainer.R
 import com.semenovdev.addendtrainer.databinding.FragmentResultBinding
 import com.semenovdev.addendtrainer.domain.entity.GameResult
 
@@ -32,6 +33,43 @@ class ResultFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        bindViews()
+        setListeners()
+    }
+
+    private fun bindViews() {
+        with (binding) {
+            var imageSource = if (result.isSuccess) {
+                R.drawable.ic_glad
+            } else {
+                R.drawable.ic_sad
+            }
+            emojiResult.setImageResource(imageSource)
+
+            tvMinCount.text = String.format(
+                getString(R.string.min_quantity).toString(),
+                result.gameSettings.minCountRightAnswers.toString(),
+            )
+
+            tvScore.text = String.format(
+                getString(R.string.min_quantity).toString(),
+                result.correctAnswersCount.toString(),
+            )
+
+            tvMinPercentage.text = String.format(
+                getString(R.string.min_percentage).toString(),
+                result.gameSettings.minPercentRightAnswers.toString(),
+            )
+
+            tvPercentage.text= String.format(
+                getString(R.string.percentage).toString(),
+                result.percentage.toString(),
+            )
+        }
+    }
+
+    private fun setListeners () {
         binding.buttonRetry.setOnClickListener {
             retryGame()
         }
@@ -42,6 +80,7 @@ class ResultFragment() : Fragment() {
             }
         } )
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

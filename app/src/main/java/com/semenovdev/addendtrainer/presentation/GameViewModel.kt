@@ -14,7 +14,6 @@ import com.semenovdev.addendtrainer.R
 import com.semenovdev.addendtrainer.domain.entity.GameResult
 import com.semenovdev.addendtrainer.domain.usecases.GenerateQuestionUseCase
 import com.semenovdev.addendtrainer.domain.usecases.GetGameSettingsUseCase
-import kotlin.Boolean
 
 
 class GameViewModel(application: Application) : AndroidViewModel(application) {
@@ -103,6 +102,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             isSuccess,
             correctAnswersCount,
             totalAnswersCount,
+            percentage = correctAnswersPercent.value ?: 0,
             gameSettings = settings,
         )
     }
