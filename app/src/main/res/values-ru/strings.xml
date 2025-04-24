@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">AddendTrainer</string>
     <string name="button_submit">Понятно</string>
-    <string name="rules">Правила игры: перед вами будет три фигуры, две снизу и одна сверху, в двух из них будут         числа. Необходимо, чтобы сумма чисел из двух нижних фигур была равна числу в верхней фигуре,         для этого нужно вставить недостающее число.\\n\\nПример: в верхнем круге число 7, в одном         из нижних знак вопроса, а в другом число 4. Значит на месте вопросительного знака должно         быть число 3, потому что 3 + 4 = 7</string>
+    <string name="rules">Правила игры: перед вами будет три фигуры, две снизу и одна сверху, в двух из них будут числа. Необходимо, чтобы сумма чисел из двух нижних фигур была равна числу в верхней фигуре, для этого нужно вставить недостающее число. Пример: в верхнем круге число 7, в одном  из нижних знак вопроса, а в другом число 4. Значит на месте вопросительного знака должно         быть число 3, потому что 3 + 4 = 7</string>
     <string name="rules_title">Состав числа</string>
     <string name="button_level_test">тестовый</string>
     <string name="button_level_easy">легкий</string>
@@ -12,9 +12,9 @@
     <string name="correct_answers">Правильных ответов</string>
     <string name="minimum">Минимум</string>
     <string name="button_retry">попробовать снова</string>
-    <string name="min_quantity">Необходимое количество правильных ответов:</string>
-    <string name="your_score">Ваш счет:</string>
-    <string name="min_percentage">Необходимый процент правильных ответов:</string>
-    <string name="percentage">Процент правильных ответов:</string>
+    <string name="min_quantity">Необходимое количество правильных ответов: %s</string>
+    <string name="your_score">Ваш счет: %s</string>
+    <string name="min_percentage">Необходимый процент правильных ответов: %s</string>
+    <string name="percentage">Процент правильных ответов:  %s</string>
     <string name="progress_answers">Правильных ответов %s (минимум %s)</string>
 </resources>
