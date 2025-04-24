@@ -1,15 +1,18 @@
 package com.semenovdev.addendtrainer.presentation
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.semenovdev.addendtrainer.R
 import com.semenovdev.addendtrainer.databinding.FragmentGameBinding
 import com.semenovdev.addendtrainer.domain.entity.GameResult
-import com.semenovdev.addendtrainer.domain.entity.GameSettings
 import com.semenovdev.addendtrainer.domain.entity.Level
 
 class GameFragment : Fragment() {
@@ -23,6 +26,17 @@ class GameFragment : Fragment() {
     private var _binding: FragmentGameBinding? = null
     private val binding: FragmentGameBinding
         get() = _binding ?: throw RuntimeException("FragmentGameBinding == null")
+
+    private val tvOptions by lazy {
+        mutableListOf<TextView>().apply {
+            add(binding.tvOption1)
+            add(binding.tvOption2)
+            add(binding.tvOption3)
+            add(binding.tvOption4)
+            add(binding.tvOption5)
+            add(binding.tvOption6)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,34 +91,11 @@ class GameFragment : Fragment() {
                 tvSum.text = question .sum.toString()
                 tvLeftAddend.text = question .visibleNumber.toString()
 
-                tvOption1.text = question .options[0].toString()
-                tvOption1.setOnClickListener {
-                    viewModel.checkAnswer(question .options[0])
-                }
-
-                tvOption2.text = question .options[1].toString()
-                tvOption2.setOnClickListener {
-                    viewModel.checkAnswer(question .options[1])
-                }
-
-                tvOption3.text = question .options[2].toString()
-                tvOption3.setOnClickListener {
-                    viewModel.checkAnswer(question .options[2])
-                }
-
-                tvOption4.text = question .options[3].toString()
-                tvOption4.setOnClickListener {
-                    viewModel.checkAnswer(question .options[3])
-                }
-
-                tvOption5.text = question .options[4].toString()
-                tvOption5.setOnClickListener {
-                    viewModel.checkAnswer(question .options[4])
-                }
-
-                tvOption6.text = question .options[5].toString()
-                tvOption6.setOnClickListener {
-                    viewModel.checkAnswer(question .options[5])
+                for (i in tvOptions.indices){
+                    tvOptions[i].text = question.options[i].toString()
+                    tvOptions[i].setOnClickListener {
+                        viewModel.checkAnswer(question.options[i])
+                    }
                 }
             }
         }
@@ -116,7 +107,19 @@ class GameFragment : Fragment() {
                 tvCorrectAnswersCount.text = it
             }
             viewModel.isEnoughAnswers.observe(viewLifecycleOwner) {
+                tvCorrectAnswersCount.setTextColor(getSuccessColor(it))
+            }
+            viewModel.correctAnswersPercent.observe(viewLifecycleOwner) {
+                progressBar.setProgress(it, true)
+            }
 
+            viewModel.isEnoughPercent.observe(viewLifecycleOwner) {
+                val color = getSuccessColor(it)
+                progressBar.progressTintList = ColorStateList.valueOf(color)
+            }
+
+            viewModel.secondaryProgress.observe(viewLifecycleOwner) {
+                progressBar.secondaryProgress = it
             }
         }
     }
@@ -125,6 +128,15 @@ class GameFragment : Fragment() {
         viewModel.gameResult.observe(viewLifecycleOwner) {
             launchResultFragment(it)
         }
+    }
+
+    private fun getSuccessColor(isSuccess: Boolean): Int {
+        val colorRes = if (isSuccess) {
+            R.color.green_100
+        } else {
+            R.color.red
+        }
+        return ContextCompat.getColor(requireContext(), colorRes)
     }
 
 
