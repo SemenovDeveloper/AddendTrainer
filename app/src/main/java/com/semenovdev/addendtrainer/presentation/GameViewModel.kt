@@ -9,22 +9,23 @@ import com.semenovdev.addendtrainer.domain.entity.Level
 import com.semenovdev.addendtrainer.domain.entity.Question
 import android.os.CountDownTimer
 import android.text.format.DateUtils
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import com.semenovdev.addendtrainer.R
 import com.semenovdev.addendtrainer.domain.entity.GameResult
 import com.semenovdev.addendtrainer.domain.usecases.GenerateQuestionUseCase
 import com.semenovdev.addendtrainer.domain.usecases.GetGameSettingsUseCase
 
 
-class GameViewModel(application: Application) : AndroidViewModel(application) {
-    private val context = application
+class GameViewModel(
+    private val level: Level,
+    private val application: Application
+) : ViewModel() {
     private val repository = GameRepositoryImpl
 
     private val getGameSettingsUseCase = GetGameSettingsUseCase(repository)
     private val generateQuestionUseCase =  GenerateQuestionUseCase(repository)
 
     private var timer: CountDownTimer? = null
-    private lateinit var level: Level
     private lateinit var settings: GameSettings
     private var correctAnswersCount = 0
     private var totalAnswersCount = 0
@@ -61,8 +62,12 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     val gameResult: LiveData<GameResult>
         get() = _gameResult
 
-    fun startGame(lvl: Level) {
-        level = lvl
+    init {
+        startGame()
+    }
+
+
+    private fun startGame() {
         settings = getGameSettingsUseCase(level)
         _secondaryProgress.value = settings.minPercentRightAnswers
         startTimer()
@@ -125,7 +130,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         _correctAnswersPercent.value = percent
 
         _progress.value = String.format(
-            context.resources.getString(R.string.progress_answers),
+            application.resources.getString(R.string.progress_answers),
             correctAnswersCount.toString(),
             settings.minCountRightAnswers.toString(),
         )

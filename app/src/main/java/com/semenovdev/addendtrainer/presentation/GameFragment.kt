@@ -18,7 +18,7 @@ class GameFragment : Fragment() {
     private val viewModel: GameViewModel by lazy {
         ViewModelProvider(
             this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
+            GameViewModelFactory(level, requireActivity().application)
         )[GameViewModel::class.java]
     }
     private lateinit var level: Level
@@ -52,7 +52,6 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.startGame(level)
 
         setTimerView()
         setQuestionFields()
