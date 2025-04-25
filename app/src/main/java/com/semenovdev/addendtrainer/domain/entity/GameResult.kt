@@ -10,12 +10,4 @@ data class GameResult(
     val totalAnswersCount: Int,
     val percentage: Int,
     val gameSettings: GameSettings
-): Parcelable {
-
-    val correctAnswersCountString: String
-        get() = correctAnswersCount.toString()
-
-    val percentageString: String
-        get() = percentage.toString()
-
-}
+): Parcelable
