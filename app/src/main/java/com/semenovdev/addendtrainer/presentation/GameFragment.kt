@@ -14,7 +14,6 @@ import androidx.navigation.fragment.navArgs
 import com.semenovdev.addendtrainer.R
 import com.semenovdev.addendtrainer.databinding.FragmentGameBinding
 import com.semenovdev.addendtrainer.domain.entity.GameResult
-import com.semenovdev.addendtrainer.domain.entity.Level
 
 class GameFragment : Fragment() {
     private val args by navArgs<GameFragmentArgs>()
@@ -126,11 +125,4 @@ class GameFragment : Fragment() {
         }
         return ContextCompat.getColor(requireContext(), colorRes)
     }
-
-
-    companion object {
-        const val NAME = "GameFragment"
-        private const val KEY_LEVEL = "level"
-    }
-
 }

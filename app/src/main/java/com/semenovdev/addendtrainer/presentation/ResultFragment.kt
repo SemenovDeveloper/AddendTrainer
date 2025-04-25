@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.semenovdev.addendtrainer.R
@@ -18,10 +17,6 @@ class ResultFragment() : Fragment() {
     private var _binding: FragmentResultBinding? = null
     private val binding: FragmentResultBinding
         get() = _binding ?: throw RuntimeException("FragmentResultBinding == null")
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

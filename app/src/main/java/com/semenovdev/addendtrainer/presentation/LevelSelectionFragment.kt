@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.semenovdev.addendtrainer.R
 import com.semenovdev.addendtrainer.databinding.FragmentLevelSelectionBinding
 import com.semenovdev.addendtrainer.domain.entity.Level
 
@@ -52,13 +51,5 @@ class LevelSelectionFragment : Fragment() {
 
     private fun launchGameFragment (level: Level) {
         findNavController().navigate(LevelSelectionFragmentDirections.actionLevelSelectionFragmentToGameFragment(level))
-    }
-
-    companion object {
-        const val NAME = "LevelSelectionFragment"
-
-        fun newInstance (): LevelSelectionFragment {
-           return LevelSelectionFragment()
-        }
     }
 }
