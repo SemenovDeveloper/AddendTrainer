@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.semenovdev.addendtrainer.R
 import com.semenovdev.addendtrainer.databinding.FragmentLevelSelectionBinding
 import com.semenovdev.addendtrainer.domain.entity.Level
@@ -50,10 +51,7 @@ class LevelSelectionFragment : Fragment() {
     }
 
     private fun launchGameFragment (level: Level) {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.main, GameFragment.newInstance(level))
-            .addToBackStack(GameFragment.NAME)
-            .commit()
+        findNavController().navigate(LevelSelectionFragmentDirections.actionLevelSelectionFragmentToGameFragment(level))
     }
 
     companion object {
