@@ -34,6 +34,7 @@ class ResultFragment() : Fragment() {
     }
 
     private fun bindViews() {
+        binding.result = args.result
         with(binding) {
             var imageSource = if (args.result.isSuccess) {
                 R.drawable.ic_glad
@@ -42,25 +43,25 @@ class ResultFragment() : Fragment() {
             }
             emojiResult.setImageResource(imageSource)
 
-            tvMinCount.text = String.format(
-                getString(R.string.min_quantity).toString(),
-                args.result.gameSettings.minCountRightAnswers.toString(),
-            )
-
-            tvScore.text = String.format(
-                getString(R.string.your_score).toString(),
-                args.result.correctAnswersCount.toString(),
-            )
-
-            tvMinPercentage.text = String.format(
-                getString(R.string.min_percentage).toString(),
-                args.result.gameSettings.minPercentRightAnswers.toString(),
-            )
-
-            tvPercentage.text = String.format(
-                getString(R.string.percentage).toString(),
-                args.result.percentage.toString(),
-            )
+//            tvMinCount.text = String.format(
+//                getString(R.string.min_quantity).toString(),
+//                args.result.gameSettings.minCountRightAnswers.toString(),
+//            )
+//
+//            tvScore.text = String.format(
+//                getString(R.string.your_score).toString(),
+//                args.result.correctAnswersCount.toString(),
+//            )
+//
+//            tvMinPercentage.text = String.format(
+//                getString(R.string.min_percentage).toString(),
+//                args.result.gameSettings.minPercentRightAnswers.toString(),
+//            )
+//
+//            tvPercentage.text = String.format(
+//                getString(R.string.percentage).toString(),
+//                args.result.percentage.toString(),
+//            )
         }
     }
 
