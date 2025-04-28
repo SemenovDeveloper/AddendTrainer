@@ -50,8 +50,9 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.gameViewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
-        setTimerView()
         setQuestionFields()
         setProgressFields()
         subscribeToGameResult()
@@ -66,18 +67,9 @@ class GameFragment : Fragment() {
         findNavController().navigate(GameFragmentDirections.actionGameFragmentToResultFragment(gameResult))
     }
 
-    private fun setTimerView() {
-        viewModel.remainingTime.observe(viewLifecycleOwner) {
-            binding.tvTimer.text = it
-        }
-    }
-
     private fun setQuestionFields() {
         viewModel.currentQuestion.observe(viewLifecycleOwner) { question ->
             with (binding) {
-                tvSum.text = question .sum.toString()
-                tvLeftAddend.text = question .visibleNumber.toString()
-
                 for (i in tvOptions.indices){
                     tvOptions[i].text = question.options[i].toString()
                     tvOptions[i].setOnClickListener {
@@ -90,24 +82,24 @@ class GameFragment : Fragment() {
 
     private fun setProgressFields() {
         with(binding) {
-            viewModel.progress.observe(viewLifecycleOwner) {
-                tvCorrectAnswersCount.text = it
-            }
-            viewModel.isEnoughAnswers.observe(viewLifecycleOwner) {
-                tvCorrectAnswersCount.setTextColor(getSuccessColor(it))
-            }
-            viewModel.correctAnswersPercent.observe(viewLifecycleOwner) {
-                progressBar.setProgress(it, true)
-            }
+//            viewModel.progress.observe(viewLifecycleOwner) {
+//                tvCorrectAnswersCount.text = it
+//            }
+//            viewModel.isEnoughAnswers.observe(viewLifecycleOwner) {
+//                tvCorrectAnswersCount.setTextColor(getSuccessColor(it))
+//            }
+//            viewModel.correctAnswersPercent.observe(viewLifecycleOwner) {
+//                progressBar.setProgress(it, true)
+//            }
 
-            viewModel.isEnoughPercent.observe(viewLifecycleOwner) {
-                val color = getSuccessColor(it)
-                progressBar.progressTintList = ColorStateList.valueOf(color)
-            }
+//            viewModel.isEnoughPercent.observe(viewLifecycleOwner) {
+//                val color = getSuccessColor(it)
+//                progressBar.progressTintList = ColorStateList.valueOf(color)
+//            }
 
-            viewModel.secondaryProgress.observe(viewLifecycleOwner) {
-                progressBar.secondaryProgress = it
-            }
+//            viewModel.secondaryProgress.observe(viewLifecycleOwner) {
+//                progressBar.secondaryProgress = it
+//            }
         }
     }
 
