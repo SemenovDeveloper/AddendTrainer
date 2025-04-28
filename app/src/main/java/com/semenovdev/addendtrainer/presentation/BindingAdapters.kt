@@ -8,6 +8,10 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.semenovdev.addendtrainer.R
 
+interface OnClickListener {
+    fun onClick(value:Int)
+}
+
 @BindingAdapter("requiredAnswers")
 fun bindRequiredAnswers(textView: TextView, count: Int) {
     textView.text = String.format(
@@ -74,4 +78,11 @@ fun getSuccessColors (view: View, isSuccess: Boolean): Int {
         R.color.red
     }
     return view.context.getColor(colorRes)
+}
+
+@BindingAdapter("onOptionClickListener")
+fun bindOnOptionClickListener(textView: TextView, listener: OnClickListener){
+    textView.setOnClickListener {
+        listener.onClick(textView.text.toString().toInt())
+    }
 }
